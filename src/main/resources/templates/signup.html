@@ -13,13 +13,13 @@
 		<div class="page-header">
 			<h1>ユーザー登録画面</h1>
 		</div>
-		<form method="post" action="/signup">
+		<form method="post" action="/signup" th:object="${signupForm}">
 			<table class="table table-bordered table-hover">
 				<tr>
 					<th class="active col-sm-3">名前</th>
 					<td>
 						<div class="form-group">
-							<input type="text" class="form-control" />
+							<input type="text" class="form-control" th:field="*{name}" />
 						</div>
 					</td>
 				</tr>
@@ -27,7 +27,7 @@
 					<th class="active">アカウント名</th>
 					<td>
 						<div class="form-group">
-							<input type="text" class="form-control" />
+							<input type="text" class="form-control" th:field="*{account}" />
 						</div>
 					</td>
 				</tr>
@@ -35,7 +35,7 @@
 					<th class="active">パスワード</th>
 					<td>
 						<div class="form-group">
-							<input type="password" class="form-control" />
+							<input type="password" class="form-control" th:field="*{password}"  />
 						</div>
 					</td>
 				</tr>
@@ -43,7 +43,7 @@
 					<th class="active">メールアドレス</th>
 					<td>
 						<div class="form-group">
-							<input type="text" class="form-control" />
+							<input type="text" class="form-control" th:field="*{email}" />
 						</div>
 					</td>
 				</tr>
@@ -51,10 +51,15 @@
 					<th class="active">説明</th>
 					<td>
 						<div class="form-group">
-							<textarea name="description" cols="35" rows="5" class="form-control"></textarea>
+							<textarea th:field="*{description}" cols="35" rows="5" class="form-control"></textarea>
 						</div>
 					</td>
 				</tr>
+				<ul>
+					<li th:each="error:${#fields.detailedErrors()}">
+						<span th:text="${error.message}">Errormessage</span>
+					</li>
+				</ul>
 
 			</table>
 			<button class="btn btn-primary" type="submit">登録</button>

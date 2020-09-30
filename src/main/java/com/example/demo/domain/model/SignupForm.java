@@ -15,19 +15,21 @@ public class SignupForm {
 
 	//private Integer id;
 
-	@NotBlank
+	@NotBlank(groups = ValidGroup1.class)
+	@Length(max = 20, groups = ValidGroup2.class)
 	private String name;
 
-	@NotBlank
+	@NotBlank(groups = ValidGroup1.class)
+	@Length(max = 20, groups = ValidGroup2.class)
 	private String account;
 
-	@NotBlank
-	@Length(min = 4, max = 100)
-	@Pattern(regexp="^[a-zA-Z0-9]+$")
+	@NotBlank(groups = ValidGroup1.class)
+	@Length(min = 4, max = 100, groups = ValidGroup2.class)
+	@Pattern(regexp="^[a-zA-Z0-9]+$", groups = ValidGroup3.class)
 	private String password;
 
-	@NotBlank
-	@Email
+	@NotBlank(groups = ValidGroup1.class)
+	@Email(groups = ValidGroup2.class)
 	private String email;
 	private String description;
 	//private Date created_at;

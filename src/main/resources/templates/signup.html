@@ -18,49 +18,47 @@
 				<tr>
 					<th class="active col-sm-3">名前</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${#fields.hasErrors('name')}?'has-error'">
 							<input type="text" class="form-control" th:field="*{name}" />
+							<span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</span>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th class="active">アカウント名</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${#fields.hasErrors('account')}?'has-error'">
 							<input type="text" class="form-control" th:field="*{account}" />
+							<span class="text-danger" th:if="${#fields.hasErrors('account')}" th:errors="*{account}">account error</span>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th class="active">パスワード</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${#fields.hasErrors('password')}?'has-error'">
 							<input type="password" class="form-control" th:field="*{password}"  />
+							<span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error</span>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th class="active">メールアドレス</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${#fields.hasErrors('email')}?'has-error'">
 							<input type="text" class="form-control" th:field="*{email}" />
+							<span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error</span>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th class="active">説明</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group ">
 							<textarea th:field="*{description}" cols="35" rows="5" class="form-control"></textarea>
 						</div>
 					</td>
 				</tr>
-				<ul>
-					<li th:each="error:${#fields.detailedErrors()}">
-						<span th:text="${error.message}">Errormessage</span>
-					</li>
-				</ul>
-
 			</table>
 			<button class="btn btn-primary" type="submit">登録</button>
 			<a th:href="@{/login}">戻る</a>

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class loginController {
+public class LoginController {
 
 	//ログイン画面遷移
 	@GetMapping("/login")
@@ -17,7 +17,7 @@ public class loginController {
 	//ログインボタンポスト用
 	@PostMapping("/login")
 	public String postLogin(Model model) {
-		return "login";
+		return "redirect:/home";
 	}
 
 

@@ -29,4 +29,9 @@ public class UserService {
 		return dao.findAll();
 	}
 
+	//ユーザー1件取得
+	public User findOne(int id) {
+		return dao.findOne(id);
+	}
+
 }

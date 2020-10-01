@@ -1,6 +1,8 @@
 package com.example.demo.domain.repository.jdbc;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -40,7 +42,20 @@ public class UserDaoJdbcImpl implements UserDao {
 
 	@Override
 	public List<User> findAll() throws DataAccessException {
-		return null;
+
+		List<Map<String, Object>> getList = jdbc.queryForList("SELECT * FROM users");
+		List<User> userList = new ArrayList<>();
+		for (Map<String, Object>map:getList) {
+			User user = new User();
+			user.setId((Integer)map.get("id"));
+			user.setName((String)map.get("name"));
+			user.setAccount((String)map.get("account"));
+			user.setEmail((String)map.get("email"));
+			user.setPassword((String)map.get("password"));
+			user.setDescription((String)map.get("description"));
+			userList.add(user);
+		}
+		return userList;
 	}
 
 	@Override

@@ -18,6 +18,8 @@ public class UserDaoJdbcImpl implements UserDao {
 	@Autowired
 	JdbcTemplate jdbc;
 
+
+
 	@Override
 	public int insert(User user) throws DataAccessException {
 		int rowNumber = jdbc.update("INSERT INTO users ("

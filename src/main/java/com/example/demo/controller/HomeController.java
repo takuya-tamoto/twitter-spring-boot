@@ -25,6 +25,8 @@ public class HomeController {
 
 	@Autowired
 	UserService userService;
+
+	@Autowired
 	MessageService messageService;
 
 	//ホーム画面遷移

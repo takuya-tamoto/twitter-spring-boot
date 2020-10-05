@@ -27,13 +27,15 @@ public class UserDaoJdbcImpl implements UserDao {
 				+ "account, "
 				+ "password, "
 				+ "email, "
-				+ "description) "
-				+ "VALUES (?,?,?,?,?)"
+				+ "description, "
+				+ "role) "
+				+ "VALUES (?,?,?,?,?,?)"
 				,user.getName()
 				,user.getAccount()
 				,user.getPassword()
 				,user.getEmail()
-				,user.getDescription());
+				,user.getDescription()
+				,user.getRole());
 		return rowNumber;
 	}
 

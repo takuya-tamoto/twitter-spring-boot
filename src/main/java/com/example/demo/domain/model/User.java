@@ -19,5 +19,6 @@ public class User implements Serializable {
 	private String description;
 	private Date created_date;
 	private Date updated_date;
+	private String role;
 
 }
